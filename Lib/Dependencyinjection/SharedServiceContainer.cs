@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Lib.Middleware;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Serilog;
@@ -28,10 +30,21 @@ namespace Lib.Dependencyinjection
                 rollingInterval: RollingInterval.Day)
                 .CreateLogger();
 
-            //add JWT authentication
-
+            //add JWT authentication scheme
+            JWTAuthenticationScheme.AddJWTAuthenticationScheme(services, config);
 
             return services;
+        }
+
+        public static IApplicationBuilder UseSharedPolicies(this IApplicationBuilder app)
+        {
+            //use global exception
+            app.UseMiddleware<GlobalException>();
+
+            //register middleware to block all outsiders
+            app.UseMiddleware<ListenToOnlyAPIGateway>();
+
+            return app;
         }
     }
 }
