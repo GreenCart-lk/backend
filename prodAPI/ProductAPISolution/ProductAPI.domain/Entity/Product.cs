@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ProductAPI.domain.Entity
+﻿namespace ProductAPI.domain.Entity
 {
-    internal class Product
+    public class Product
     {
+        public int Id { get; set; }
+        public string? Name { get; set; }
+        public decimal Price { get; set; }
+        public int Quantiy { get; set; }
+        public int Quantity { get; set; }
     }
 }
