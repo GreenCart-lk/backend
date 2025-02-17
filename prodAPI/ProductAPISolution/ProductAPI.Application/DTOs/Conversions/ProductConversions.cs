@@ -34,7 +34,7 @@ namespace ProductAPI.Application.DTOs.Conversions
             //return list
             if(product is not null || product is null)
             {
-                var _products = products.Select(p =>
+                var _products = products!.Select(p =>
 
                     new ProductDTO(p.Id, p.Name, p.Quantity, p.Price)).ToList();
 

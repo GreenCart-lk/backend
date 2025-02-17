@@ -41,7 +41,8 @@ namespace ProductAPI.infrastructure.Repositories
             {
                 var product = await FindByIdAsync(entity.Id);
                 if (product is null)
-                    return new Response(false, $"{entity.Name} not found"); 
+                    return new Response(false, $"{entity.Name} not found");
+                context.Products.Remove(product);
                 await context.SaveChangesAsync();
                 return new Response(true, $"{entity.Name} is deleted"); 
             }
