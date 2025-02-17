@@ -1,4 +1,4 @@
-﻿/*
+﻿
 
 using Lib.Dependencyinjection;
 using Microsoft.AspNetCore.Builder;
@@ -13,7 +13,7 @@ namespace ProductAPI.infrastructure.DependencyInjection
 {
     public static class ServiceContainer
     {
-        public static IServiceCollection AddInfrastructureService(this IServiceCollection service, IConfiguration config, IServiceCollection services)
+        public static IServiceCollection AddInfrastructureService(this IServiceCollection services, IConfiguration config)
         {
             //Add database connectivity
             SharedServiceContainer.AddSharedServices<ProductDbContext>(services, config, config["MySerilog:FileName"]!);
@@ -21,7 +21,7 @@ namespace ProductAPI.infrastructure.DependencyInjection
 
             //create dependency injection(DI)
             services.AddScoped<IProduct, ProductRepository>();
-            return service; 
+            return services; 
         }
 
         public static IApplicationBuilder UseInfrastructurePolicy(this IApplicationBuilder app)
@@ -34,9 +34,9 @@ namespace ProductAPI.infrastructure.DependencyInjection
         }
     }
 }
-*/
 
-using Lib.Dependencyinjection;
+
+/*using Lib.Dependencyinjection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -68,3 +68,4 @@ namespace ProductAPI.infrastructure.DependencyInjection
         }
     }
 }
+*/
