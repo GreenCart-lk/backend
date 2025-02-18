@@ -7,7 +7,10 @@ namespace OrderApi.Application.DTOs
     (
         int Id,
         [Required] string Name,
-        [Required, Range(1,  int.MaxValue)] int ProductQuantity,
+        [Required, Range(1, int.MaxValue)] int ProductQuantity,
         [Required, DataType(DataType.Currency)] decimal Price
-        );
+        )
+    {
+        public int Quantity { get; internal set; }
+    }
 }
