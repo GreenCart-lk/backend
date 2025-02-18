@@ -42,7 +42,7 @@ namespace Lib.Dependencyinjection
             app.UseMiddleware<GlobalException>();
 
             //register middleware to block all outsiders
-            app.UseMiddleware<ListenToOnlyAPIGateway>();
+           // app.UseMiddleware<ListenToOnlyAPIGateway>();
 
             return app;
         }
