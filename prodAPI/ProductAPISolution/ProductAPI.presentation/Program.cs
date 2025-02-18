@@ -1,9 +1,16 @@
+using Microsoft.EntityFrameworkCore;
+using ProductAPI.infrastructure.Data;
 using ProductAPI.infrastructure.DependencyInjection;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddInfrastructureService(builder.Configuration);
+
+builder.Services.AddDbContext<ProductDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("eCoomerceConnection")));
+
+
 var app = builder.Build();
 
 app.UseInfrastructurePolicy();

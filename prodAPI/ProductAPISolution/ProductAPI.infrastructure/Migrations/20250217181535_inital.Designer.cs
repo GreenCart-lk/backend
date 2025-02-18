@@ -8,11 +8,11 @@ using ProductAPI.infrastructure.Data;
 
 #nullable disable
 
-namespace ProductAPI.infrastructure.Data.Migrations
+namespace ProductAPI.infrastructure.Migrations
 {
     [DbContext(typeof(ProductDbContext))]
-    [Migration("20250217063455_First")]
-    partial class First
+    [Migration("20250217181535_inital")]
+    partial class inital
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -2,10 +2,10 @@
 
 #nullable disable
 
-namespace ProductAPI.infrastructure.Data.Migrations
+namespace ProductAPI.infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class First : Migration
+    public partial class inital : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
